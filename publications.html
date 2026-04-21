@@ -59,6 +59,52 @@
 	.features article {
 		margin-bottom: 2em;
 	}
+	
+.bibtex-popup {
+  position: fixed;
+  right: 20px;
+  top: 180px;
+  width: 260px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+  padding: 10px;
+  display: none;
+  z-index: 9999;
+  font-size: 0.8em;
+}
+
+.bibtex-box {
+  font-family: monospace;
+  font-size: 0.75em;
+  background: #f7f7f7;
+  padding: 6px;
+  margin-top: 5px;
+  white-space: pre;
+  line-height: 1.2;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.bibtex-btn {
+  margin-left: 6px;
+  cursor: pointer;
+  color: #0066cc;
+  font-size: 0.8em;
+}
+
+.copy-btn {
+  margin-top: 6px;
+  padding: 3px 8px;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 14px;
+}
 	</style>
 </head>
 
@@ -123,12 +169,38 @@
 												</colgroup>
 												<tbody>
 													<tr> 
+														<td style="vertical-align:text-top;">in prep</td>
+														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <i>Hewramî folktales</i>. </a></td>
+													</tr>
+													<tr> 
 														<td style="vertical-align:text-top;">2026</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="https://langsci-press.org/catalog/book/517"><i>A grammar of Hewramî</i>. </a>(Comprehensive Grammar Library). Berlin: Language Science Press.</td>
+														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="https://langsci-press.org/catalog/book/517"><i>A grammar of Hewramî</i>. </a>(Comprehensive Grammar Library). Berlin: Language Science Press. <a href= https://doi.org/10.5281/zenodo.17140766>https://doi.org/10.5281/zenodo.17140766</a>
+													<a class="bibtex-btn" onclick="openBibtex(`@book{Mohammadirad2026,
+														author={Mohammadirad, Masoud},
+														title={A grammar of {Hewramî}},
+														year={2026},
+														series={Comprehensive Grammar Library},
+														number={11},
+														address={Berlin},
+														publisher={Language Science Press},
+														doi={10.5281/zenodo.17140766}
+													}`)">[BibTeX]</a>
+														</td>
 													</tr>
 													<tr> 
 														<td style="vertical-align:text-top;">2025</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="https://langsci-press.org/catalog/book/531"><i>Echoes of the past: Hewramî narratives</i>. </a>(Open Text Collections). Berlin: Language Science Press.</td>
+														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="https://langsci-press.org/catalog/book/531"><i>Echoes of the past: Hewramî narratives</i>. </a>(Open Text Collections). Berlin: Language Science Press. <a href= https://doi.org/10.5281/zenodo.17140764>https://doi.org/10.5281/zenodo.17140764</a>
+													<a class="bibtex-btn" onclick="openBibtex(`@book{Mohammadirad2025,
+														author={Mohammadirad, Masoud},
+														title={{Echoes of the past: Hewramî narratives}},
+														year={2025},
+														series={Open Text Collections},
+														number={4},
+														address={Berlin},
+														publisher={Language Science Press},
+														doi={10.5281/zenodo.17140764}
+													}`)">[BibTeX]</a>
+														</td>
 													</tr>
 													<tr> 
 														<td style="vertical-align:text-top;">2024</td>
@@ -157,7 +229,18 @@
 											<tr>
 											<tr>
 												<td style="vertical-align:text-top;">2026</td>
-												<td>Mohammadirad, Masoud and Geoffrey Haig. Subject agreement emerges from topic continuity, not topic shift. Corpus-based evidence from Hewramî, a West Iranian language.<i></i>Word Structure </i>19(1):55-91<a href= https://doi.org/10.3366/word.2026.026>https://doi.org/10.3366/word.2026.026</a></td>
+												<td>Mohammadirad, Masoud and Geoffrey Haig. Subject agreement emerges from topic continuity, not topic shift. Corpus-based evidence from Hewramî, a West Iranian language.<i></i>Word Structure </i>19(1):55-91<a href= https://doi.org/10.3366/word.2026.026>https://doi.org/10.3366/word.2026.026</a>
+											<a class="bibtex-btn" onclick="openBibtex(`@article{Mohammadirad2026,
+ 												 author={Mohammadirad, Masoud and Haig, Geoffrey},
+ 												 title={Subject agreement emerges from topic continuity},
+  												journal={Word Structure},
+												year={2026},
+												volume={19},
+												number={1},
+												pages={55-91},
+												doi={10.3366/word.2026.026}
+											}`)">[BibTeX]</a>
+												</td>
 											</tr>
 											<tr>
 												<td style="vertical-align:text-top;">2025</td>
@@ -234,24 +317,24 @@
 													<td style="vertical-align:text-top;">Khan, Geoffrey, Masoud Mohammadirad. <a href="Khan_Mohammadirad_2024_Gorani_influence_on_NENA.pdf">Gorani influence on NENA</a>. In Shuan Karim, Salumeh Gholami, eds.<a href="https://www.degruyter.com/document/doi/10.1515/9783111168852/html"><i> Gorani in its historical and linguistic context. </i>pp. 171-198. Berlin: De Gruyter Mouton.</td>
 												  </tr>
 												  <tr> 
-													<td style="vertical-align:text-top;">in press</td>
-													<td style="vertical-align:text-top;">Masoud Mohammadirad. Zagros region: The Kurdish-Gorani continuum. In Geoffrey Haig, Mohammad Rasekh-Mahand, Donald Stilo, Laurentia Schreiber, Nils Schiborr, eds. <i> Post-predicate elements in the Western Asian Transition Zone: a corpus-based approach to areal typology. </i>Berlin: Language Science Press.</td>
+													<td style="vertical-align:text-top;">2024</td>
+													<td style="vertical-align:text-top;">Masoud Mohammadirad. Zagros region: The Kurdish-Gorani continuum. In Geoffrey Haig, Mohammad Rasekh-Mahand, Donald Stilo, Laurentia Schreiber, Nils Schiborr, eds. <a href="https://langsci-press.org/catalog/book/395"><i>Post-predicate elements in the Western Asian Transition Zone: a corpus-based approach to areal typology.</i></a>Berlin: Language Science Press.</td>
 												  </tr>
 												  <tr> 
 													<td style="vertical-align:text-top;">in press</td>
-													<td style="vertical-align:text-top;">Masoud Mohammadirad. Bound argument ordering across Central Kurdish and the Gorani substrate. In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin & Ergin Öpengin, eds. <i> Oxford handbook of Kurdish Linguistics. </i>Oxford: Oxford University Press.</td>
+													<td style="vertical-align:text-top;">Masoud Mohammadirad. Bound argument ordering across Central Kurdish and the Gorani substrate. In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin & Ergin Öpengin, eds. <a href="https://global.oup.com/academic/product/the-oxford-handbook-of-kurdish-linguistics-9780197788936?lang=en&cc=us"><i>Oxford handbook of Kurdish Linguistics.</i></a> Oxford: Oxford University Press.</td>
 												  </tr>
 												  <tr> 
 													<td style="vertical-align:text-top;">in press</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud and Gholamhossein Karimi Doostan. Southern Kurdish. In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin & Ergin Öpengin, eds. <i> Oxford handbook of Kurdish Linguistics. </i>Oxford: Oxford University Press.</td>
+													<td style="vertical-align:text-top;">Mohammadirad, Masoud and Gholamhossein Karimi Doostan. Southern Kurdish. In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin & Ergin Öpengin, eds. <a href="https://global.oup.com/academic/product/the-oxford-handbook-of-kurdish-linguistics-9780197788936?lang=en&cc=us"><i>Oxford handbook of Kurdish Linguistics. </i></a> Oxford: Oxford University Press.</td>
 												  </tr>
 												  <tr> 
 													<td style="vertical-align:text-top;">2022</td>
-													<td style="vertical-align:text-top;">Öpengin, Ergin and Masoud Mohammadirad. Formal and functional variation in pronominal clitics across Kurdish: documentation and explanations. In Yaron Matras, Ergin Öpengin & Geoffrey Haig, eds. <i> Structural and Typological Variation in the Dialects of Kurdish. </i>pp 181-237. London: Palgrave Macmillan. <a herf="https://doi.org/10.1007/978-3-030-78837-7_5"> doi.org/10.1007/978-3-030-78837-7_5</a></td> 
+													<td style="vertical-align:text-top;">Öpengin, Ergin and Masoud Mohammadirad. Formal and functional variation in pronominal clitics across Kurdish: documentation and explanations. In Yaron Matras, Ergin Öpengin & Geoffrey Haig, eds.<a href="https://link.springer.com/book/10.1007/978-3-030-78837-7"><i> Structural and Typological Variation in the Dialects of Kurdish.</a></i> pp 181-237. London: Palgrave Macmillan. <a herf="https://doi.org/10.1007/978-3-030-78837-7_5"> doi.org/10.1007/978-3-030-78837-7_5</a></td> 
 												  </tr>
 												  <tr> 
 													<td style="vertical-align:text-top;">2022</td>
-													<td style="vertical-align:text-top;">Noorlander, Paul and Masoud Mohammadirad. <a href="2022 narrative style and discourse in Kurdish and Neo-Aramaic.pdf"> Narrative Style and Discourse in Kurdish and Neo-Aramaic Oral Literature.</a><i> Neo-Aramaic and Kurdish Folklore of Northern Iraq: A Comparative Anthology with a Sample of Glossed Texts. </i> pp 85-155. Cambridge, UK: Open Book Publishers. <a href="https://doi.org/10.11647/OBP.0306.03"> doi.org/10.11647/OBP.0306.03</a></td>
+													<td style="vertical-align:text-top;">Noorlander, Paul and Masoud Mohammadirad. <a href="2022 narrative style and discourse in Kurdish and Neo-Aramaic.pdf"> Narrative Style and Discourse in Kurdish and Neo-Aramaic Oral Literature.</a><a href="https://www.openbookpublishers.com/books/10.11647/obp.0306"><i> Neo-Aramaic and Kurdish Folklore of Northern Iraq: A Comparative Anthology with a Sample of Glossed Texts."></i></a> pp 85-155. Cambridge, UK: Open Book Publishers. <a href="https://doi.org/10.11647/OBP.0306.03"> doi.org/10.11647/OBP.0306.03</a></td>
 												  </tr>
 												  <tr> 
 													<td style="vertical-align:text-top;">2019</td>
@@ -313,12 +396,33 @@
 						</div>
 					</div>
 
-		<!-- Scripts -->
+<div id="bibtexPopup" class="bibtex-popup">
+  <span class="close-btn" onclick="closeBibtex()">×</span>
+  <strong>BibTeX Citation</strong>
+  <div id="bibtexContent" class="bibtex-box"></div>
+  <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+</div>
+					<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+function openBibtex(text) {
+  const cleaned = text.replace(/^\s+/gm, '');
+  document.getElementById("bibtexContent").textContent = cleaned;
+  document.getElementById("bibtexPopup").style.display = "block";
+}
 
+function closeBibtex() {
+  document.getElementById("bibtexPopup").style.display = "none";
+}
+
+function copyBibtex() {
+  var text = document.getElementById("bibtexContent").textContent;
+  navigator.clipboard.writeText(text);
+}
+</script>
 	</body>
 </html>
