@@ -6,53 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset and base styles */
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Force remove ALL borders and backgrounds */
-        .top-nav,
-        #banner,
-        .site-title,
-        .nav-tabs a {
-            border: none !important;
-            border-bottom: 1px solid #ddd !important;
-            background: none !important;
-            box-shadow: none !important;
-            text-decoration: none !important;
-        }
-
-        /* Remove pseudo-element borders */
-        .top-nav::before,
-        .top-nav::after,
-        #banner::before,
-        #banner::after {
-            border: none !important;
-            border-bottom: none !important;
-            background: none !important;
-        }
-
-        /* Force white background for .top-nav */
+        /* Navigation */
         .top-nav {
-            background: white !important;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1em 0;
+            border-bottom: 1px solid #ddd;
+            background: white;
         }
 
-        /* Header and navigation */
         .site-title {
-            font-size: 1.4em;
+            font-size: 1.2em;
             font-weight: 600;
             color: #333;
+            text-decoration: none;
         }
 
         .nav-tabs a {
@@ -64,136 +43,134 @@
 
         .nav-tabs a:hover {
             color: #000;
-            border-bottom: none !important;
         }
 
-        /* Banner section */
+        /* Profile block */
         #banner {
             display: flex;
             align-items: flex-start;
-            padding: 2em 0;
+            padding: 2.5em 0 1.5em 0;
             gap: 2em;
         }
 
-        #banner .profile-container {
+        .profile-container {
             flex-shrink: 0;
             text-align: center;
+            width: 150px;
         }
 
-        #banner .content {
-            flex: 1;
-        }
-
-        #banner h1 {
-            font-size: 2em;
-            margin-bottom: 0.5em;
-        }
-
-        #banner p {
-            font-size: 1.1em;
-            color: #666;
-        }
-
-        #banner .content header {
-            border-bottom: none !important;
-        }
-
-        /* Profile image and icons */
         .profile-img {
             width: 150px;
-            height: auto;
+            height: 150px;
             border-radius: 50%;
-            border: none !important;
+            object-fit: cover;
         }
 
         .icons {
             display: flex;
             justify-content: center;
-            gap: 1em;
-            margin-top: 1em;
+            gap: 0.8em;
+            margin-top: 0.8em;
             padding: 0;
-        }
-
-        .icons li {
             list-style: none;
-            margin: 0;
         }
 
         .icons a {
-            color: #333;
-            font-size: 1.5em;
-            border: none !important;
+            color: #555;
+            font-size: 1.3em;
+            text-decoration: none;
         }
 
-        /* Two-column layout */
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2em;
-            margin-bottom: 2em;
+        .icons a:hover {
+            color: #000;
         }
 
-        /* Section headers */
-        .major {
+        /* Name + title beside photo */
+        .profile-header {
+            flex: 1;
+            padding-top: 0.3em;
+        }
+
+        .profile-header h1 {
+            font-size: 1.8em;
+            margin: 0 0 0.1em 0;
+            font-weight: 600;
+        }
+
+        .profile-header .role {
+            color: #666;
+            font-size: 1em;
+            margin: 0;
+        }
+
+        /* About me section */
+        .about-section {
             margin-top: 2em;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 0.5em;
+            border-top: 1px solid #ddd;
+            padding-top: 1.5em;
+        }
+
+        .about-section h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 0.6em;
+        }
+
+        .about-section p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3em;
+            padding: 1em 0;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.85em;
         }
     </style>
 </head>
 
 <body>
     <header class="top-nav">
-	<a href="index.html" class="site-title">Masoud Mohammadirad</a>
-
-	<nav class="nav-tabs">
-		<a href="index.html">Home</a>
-		<a href="publications.html">Publications</a>
-		<a href="Talks.html">Talks</a>
-		<a href="projects.html">Projects</a>
-		<a href="CV__Masoud_Mohammadirad_April_2026.pdf">CV</a>
-	</nav>
-
+        <a href="index.html" class="site-title">Masoud Mohammadirad</a>
+        <nav class="nav-tabs">
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="Talks.html">Talks</a>
+            <a href="projects.html">Projects</a>
+            <a href="CV__Masoud_Mohammadirad_April_2026.pdf">CV</a>
+        </nav>
     </header>
 
-    <div id="main">
-        <div class="inner">
-            <!-- HEADER / TOP NAV -->
-            <!-- BANNER -->
-            <section id="banner">
-                <div class="profile-container">
-                    <img src="mm2613.jpg" alt="Profile photo" class="profile-img" />
-                    <ul class="icons">
-                        <li><a href="mailto:mm2613@cam.ac.uk" class="fas fa-envelope"></a></li>
-                        <li><a href="https://orcid.org/0000-0002-8531-5524" class="ai ai-orcid"></a></li>
-                        <li><a href="https://scholar.google.co.uk/citations?user=7-xuP2EAAAAJ&hl=en" class="ai ai-google-scholar"></a></li>
-                        <li><a href="https://cambridge.academia.edu/MasoudMohammadirad" class="ai ai-academia"></a></li>
-                        <li><a href="https://www.researchgate.net/profile/Masoud-Mohammadirad?ev=hdr_xprf" class="ai ai-researchgate"></a></li>
-                    </ul>
-                </div>
-
-                <div class="content">
-                    <header>
-                        <p>Linguist</p>
-                    </header>
-                    <p>
-                        My research is centered around synchronic study of Iranian languages and language
-                        documentation in the Kurdish region. My work touches many areas, including language documentation,
-                        language contact, corpus-based linguistics, and morphology.
-                    </p>
-                </div>
-            </section>
-
-            <!-- TWO-COLUMN CONTENT -->
-            <div class="two-columns">
-                <section>
-                    <p></p>
-                </section>
-            </div>
-
-            <div class="two-columns">
-            </div>
+    <section id="banner">
+        <div class="profile-container">
+            <img src="mm2613.jpg" alt="Profile photo" class="profile-img" />
+            <ul class="icons">
+                <li><a href="mailto:mm2613@cam.ac.uk" class="fas fa-envelope" title="Email"></a></li>
+                <li><a href="https://orcid.org/0000-0002-8531-5524" class="ai ai-orcid" title="ORCID"></a></li>
+                <li><a href="https://scholar.google.co.uk/citations?user=7-xuP2EAAAAJ&hl=en" class="ai ai-google-scholar" title="Google Scholar"></a></li>
+                <li><a href="https://cambridge.academia.edu/MasoudMohammadirad" class="ai ai-academia" title="Academia"></a></li>
+                <li><a href="https://www.researchgate.net/profile/Masoud-Mohammadirad?ev=hdr_xprf" class="ai ai-researchgate" title="ResearchGate"></a></li>
+            </ul>
         </div>
-    </div>
+
+        <div class="profile-header">
+            <h1>Masoud Mohammadirad</h1>
+            <p class="role">PhD, Researcher in Linguistics, University of Cambridge &nbsp;·&nbsp; <a href="https://www.ames.cam.ac.uk/people/masoud-mohammadirad">Official website</a></p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>About me</h2>
+        <p>
+            My research is centered around synchronic study of Iranian languages and language
+            documentation in the Kurdish region. My work touches many areas, including language documentation,
+            language contact, corpus-based linguistics, and morphology.
+        </p>
+    </section>
+
 </body>
 </html>
