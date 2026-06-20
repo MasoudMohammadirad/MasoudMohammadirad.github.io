@@ -132,30 +132,36 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
-  margin: 1.6em 0 0.4em;
+  margin: 0.6em 0 0.4em;
 }
 
 .filter-pill {
-  font-size: 0.85em;
-  padding: 5px 12px;
-  border: 1px solid #ccc;
+  font-size: 0.68em;
+  font-weight: 400 !important;
+  padding: 2px 8px;
+  border: 1px solid #000 !important;
   border-radius: 999px;
-  background: #fff;
-  color: #333;
+  background: #fff !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.15s ease;
 }
 
 .filter-pill:hover {
-  border-color: #c40000;
-  color: #c40000;
+  border-color: #c40000 !important;
+  color: #c40000 !important;
 }
 
 .filter-pill.active {
-  background: #c40000;
-  border-color: #c40000;
-  color: #fff;
+  background: #fff !important;
+  border-color: #c40000 !important;
+  color: #c40000 !important;
+  font-weight: 600 !important;
 }
 
 .search-wrap {
@@ -186,32 +192,14 @@
   margin: 0.5em 0 1.6em;
 }
 
-/* ---- Type sections (primary grouping) ---- */
-.type-section {
-  margin-bottom: 2.4em;
-}
-
-.type-heading {
-  font-size: 1.3em;
-  border-bottom: 2px solid #333;
-  padding-bottom: 4px;
-  margin-bottom: 0.5em;
-}
-
-.type-count {
-  color: #999;
-  font-weight: 400;
-  font-size: 0.78em;
-}
-
-/* ---- Year subheadings (secondary grouping) ---- */
+/* ---- Year headings (now the primary visual grouping) ---- */
 .year-heading {
-  font-size: 0.85em;
-  font-weight: 600;
-  color: #c40000;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 1.1em 0 0.5em;
+  font-size: 1.7em;
+  font-weight: 700;
+  color: #222;
+  margin: 1.3em 0 0.4em;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #eee;
 }
 
 /* ---- Individual publication rubric ---- */
@@ -222,6 +210,16 @@
 
 .pub-entry:last-child {
   border-bottom: none;
+}
+
+.pub-type-badge {
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #c40000;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 .pub-status {
@@ -260,8 +258,9 @@
   margin-top: 2px;
 }
 
-.pub-links {
-  margin-top: 6px;
+.pub-title-actions {
+  margin-left: 8px;
+  white-space: nowrap;
 }
 
 .empty-note {
@@ -302,8 +301,6 @@
 									<header class="main">
 										<h1>Publications</h1>
 									</header>
-
-									<span class="image main"><img src="books.jpg" alt="" /></span>
 
 									<!-- Filter + search toolbar -->
 									<div class="pub-toolbar" id="filterPills"></div>
@@ -1006,6 +1003,58 @@ const PUBLICATIONS = [
   year={2021},
   url={https://spw.uni-goettingen.de/projects/lacim/lng-kur.html}
 }`
+},
+{
+  type: "Archival Entry", group: "2025", order: 0,
+  authors: "Mohammadirad, Masoud",
+  title: "A dataset of object agreement in Hewramî",
+  venue: "Zenodo",
+  links: [
+    { icon: "fa-up-right-from-square", label: "Resource", url: "https://doi.org/10.5281/zenodo.17372963" }
+  ],
+  bibtex: `@dataset{mohammadirad_2025_odataset,
+  author={Mohammadirad, Masoud},
+  title={A dataset of object agreement in Hewramî},
+  year={2025},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.17372963},
+  url={https://doi.org/10.5281/zenodo.17372963}
+}`
+},
+{
+  type: "Archival Entry", group: "2025", order: 0,
+  authors: "Mohammadirad, Masoud and Geoffrey Haig",
+  title: "A dataset of subject agreement in Hewramî",
+  venue: "Zenodo",
+  links: [
+    { icon: "fa-up-right-from-square", label: "Resource", url: "https://doi.org/10.5281/zenodo.16936551" }
+  ],
+  bibtex: `@dataset{mohammadirad_2025_16936551,
+  author={Mohammadirad, Masoud and Haig, Geoffrey},
+  title={A dataset of subject agreement in Hewramî},
+  year={2025},
+  publisher={Zenodo},
+  doi={10.5281/zenodo.16936551},
+  url={https://doi.org/10.5281/zenodo.16936551}
+}`
+},
+{
+  type: "Archival Entry", group: "2025", order: 0,
+  authors: "Mohammadirad, Masoud",
+  title: "A corpus of Hewramî recordings, time-aligned with transcription and translation",
+  venue: "Zenodo. Version 1",
+  links: [
+    { icon: "fa-up-right-from-square", label: "Resource", url: "https://doi.org/10.5281/zenodo.15419952" }
+  ],
+  bibtex: `@misc{mohammadirad_2025_15419952,
+  author={Mohammadirad, Masoud},
+  title={A corpus of Hewramî recordings, time-aligned with transcription and translation},
+  year={2025},
+  publisher={Zenodo},
+  version={1},
+  doi={10.5281/zenodo.15419952},
+  url={https://doi.org/10.5281/zenodo.15419952}
+}`
 }
 
 ];
@@ -1013,17 +1062,12 @@ const PUBLICATIONS = [
 
 <script id="pub-app">
 /* ============================================================
-   Rendering: type (primary) -> year (secondary) -> rubric entries,
-   plus the filter pills and live search.
+   Rendering: the page is sorted by year by default (regardless of
+   type), with a small type badge on each entry. Clicking a type
+   pill narrows the list to just that type (still sorted by year);
+   clicking the active pill again returns to the full year-sorted list.
    ============================================================ */
 const TYPE_ORDER = ["Dissertation", "Book", "Journal Article", "Book Chapter", "Archival Entry"];
-const TYPE_LABELS = {
-  "Dissertation": "Dissertation",
-  "Book": "Books",
-  "Journal Article": "Journal Articles",
-  "Book Chapter": "Book Chapters",
-  "Archival Entry": "Archival Entries"
-};
 
 let activeType = "All";
 let searchQuery = "";
@@ -1063,12 +1107,18 @@ function getYearGroups(items) {
   return groups;
 }
 
-function renderEntry(p) {
+function renderEntry(p, showTypeBadge) {
   const div = document.createElement("div");
   div.className = "pub-entry";
 
   const titleDiv = document.createElement("div");
   titleDiv.className = "pub-title";
+  if (showTypeBadge) {
+    const typeBadge = document.createElement("span");
+    typeBadge.className = "pub-type-badge";
+    typeBadge.textContent = p.type;
+    titleDiv.appendChild(typeBadge);
+  }
   if (p.status) {
     const badge = document.createElement("span");
     badge.className = "pub-status";
@@ -1085,6 +1135,37 @@ function renderEntry(p) {
   } else {
     titleDiv.appendChild(document.createTextNode(p.title));
   }
+
+  const links = p.links || [];
+  if (links.length || p.bibtex) {
+    const actions = document.createElement("span");
+    actions.className = "pub-title-actions";
+    links.forEach(l => {
+      const a = document.createElement("a");
+      a.className = "pub-btn";
+      a.href = l.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.title = l.label;
+      const i = document.createElement("i");
+      i.className = "fas " + l.icon;
+      a.appendChild(i);
+      actions.appendChild(a);
+    });
+    if (p.bibtex) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pub-btn";
+      btn.title = "BibTeX citation";
+      const i = document.createElement("i");
+      i.className = "fas fa-quote-right";
+      btn.appendChild(i);
+      btn.addEventListener("click", () => openBibtex(p.bibtex));
+      actions.appendChild(btn);
+    }
+    titleDiv.appendChild(actions);
+  }
+
   div.appendChild(titleDiv);
 
   const authorsDiv = document.createElement("div");
@@ -1099,76 +1180,34 @@ function renderEntry(p) {
     div.appendChild(venueDiv);
   }
 
-  const links = p.links || [];
-  if (links.length || p.bibtex) {
-    const linksDiv = document.createElement("div");
-    linksDiv.className = "pub-links";
-    links.forEach(l => {
-      const a = document.createElement("a");
-      a.className = "pub-btn";
-      a.href = l.url;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.title = l.label;
-      const i = document.createElement("i");
-      i.className = "fas " + l.icon;
-      a.appendChild(i);
-      linksDiv.appendChild(a);
-    });
-    if (p.bibtex) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pub-btn";
-      btn.title = "BibTeX citation";
-      const i = document.createElement("i");
-      i.className = "fas fa-quote-right";
-      btn.appendChild(i);
-      btn.addEventListener("click", () => openBibtex(p.bibtex));
-      linksDiv.appendChild(btn);
-    }
-    div.appendChild(linksDiv);
-  }
-
   return div;
 }
 
 function render() {
   const root = document.getElementById("pubRoot");
   root.innerHTML = "";
-  let totalShown = 0;
 
-  TYPE_ORDER.forEach(type => {
-    if (activeType !== "All" && activeType !== type) return;
+  const items = PUBLICATIONS.filter(p =>
+    (activeType === "All" || p.type === activeType) && matchesSearch(p, searchQuery)
+  );
+  const showTypeBadge = activeType === "All";
 
-    const items = PUBLICATIONS.filter(p => p.type === type && matchesSearch(p, searchQuery));
-    if (items.length === 0) return;
-    totalShown += items.length;
-
-    const section = document.createElement("section");
-    section.className = "type-section";
-
+  getYearGroups(items).forEach(group => {
     const h2 = document.createElement("h2");
-    h2.className = "type-heading";
-    h2.innerHTML = `${TYPE_LABELS[type]} <span class="type-count">(${items.length})</span>`;
-    section.appendChild(h2);
-
-    getYearGroups(items).forEach(group => {
-      const h3 = document.createElement("h3");
-      h3.className = "year-heading";
-      h3.textContent = group.label;
-      section.appendChild(h3);
-      group.items.forEach(p => section.appendChild(renderEntry(p)));
-    });
-
-    root.appendChild(section);
+    h2.className = "year-heading";
+    h2.textContent = group.label;
+    root.appendChild(h2);
+    group.items.forEach(p => root.appendChild(renderEntry(p, showTypeBadge)));
   });
 
-  if (totalShown === 0) {
+  if (items.length === 0) {
     root.innerHTML = '<p class="empty-note">No publications match your search.</p>';
   }
 
   document.getElementById("resultsCount").textContent =
-    `Showing ${totalShown} of ${PUBLICATIONS.length} publications`;
+    activeType === "All"
+      ? `Showing ${items.length} of ${PUBLICATIONS.length} publications`
+      : `Showing ${items.length} of ${PUBLICATIONS.length} publications · ${activeType}`;
 }
 
 function makePill(label, count, isActive, onClick) {
@@ -1184,16 +1223,10 @@ function renderPills() {
   const wrap = document.getElementById("filterPills");
   wrap.innerHTML = "";
 
-  wrap.appendChild(makePill("All", PUBLICATIONS.length, activeType === "All", () => {
-    activeType = "All";
-    renderPills();
-    render();
-  }));
-
   TYPE_ORDER.forEach(type => {
     const count = PUBLICATIONS.filter(p => p.type === type).length;
     wrap.appendChild(makePill(type, count, activeType === type, () => {
-      activeType = type;
+      activeType = (activeType === type) ? "All" : type;
       renderPills();
       render();
     }));
