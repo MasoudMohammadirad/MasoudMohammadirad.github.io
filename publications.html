@@ -219,25 +219,48 @@
 .pub-entry {
   padding: 0.9em 1.1em;
   margin-bottom: 12px;
-  background: #fff;
-  border: 1px solid #e2e2e2;
+  background: #faf6ec;
+  border: 1px solid #e6ddc7;
   border-radius: 10px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .pub-entry:hover {
-  border-color: #ccc;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-color: #d9cca0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-.pub-type-badge {
-  font-size: 0.78em;
+/* ---- Card header: type pill (left) + action icons (right) ---- */
+.pub-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pub-type-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #c40000;
+  color: #fff;
+  font-size: 0.66em;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: #c40000;
-  margin-right: 6px;
-  vertical-align: middle;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.pub-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.pub-card-actions > *:last-child {
+  margin-right: 0 !important;
 }
 
 .pub-status {
@@ -274,11 +297,6 @@
 .pub-venue {
   color: #555;
   margin-top: 2px;
-}
-
-.pub-title-actions {
-  margin-left: 8px;
-  white-space: nowrap;
 }
 
 .pub-chevron-btn {
@@ -491,7 +509,7 @@ const PUBLICATIONS = [
   type: "Book", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "Echoes of the past: Hewramî narratives",
-  abstract: "",
+  abstract: "This book is a collection of 15 narratives in Hewramî. It offers a unique window into the life of Hewramî speakers, including their oral and social history, social relations, recollections of past life, and storytelling traditions. The stories were told by five narrators. All the stories have been transcribed, translated, annotated, and analysed. The volume contains an introduction that provides an overview of the language and speech community. The texts are presented in two formats: as parallel column texts (Hewramî/English) and as interlinearised glossed texts, containing detailed linguistic analysis. Many of the narratives contain elements of hagiographies, focusing on moral lessons. This book complements the Hewramî grammar.",
   venue: "(Open Text Collections). Berlin: Language Science Press",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://langsci-press.org/catalog/book/531" }
@@ -1208,18 +1226,64 @@ function getYearGroups(items) {
   return groups;
 }
 
-function renderEntry(p, showTypeBadge) {
+function renderEntry(p) {
   const div = document.createElement("div");
   div.className = "pub-entry";
 
+  const links = p.links || [];
+  const hasAbstract = !!(p.abstract && p.abstract.trim());
+  let abstractToggle = null;
+
+  // ---- Card header: red type pill (left) + action icons (right) ----
+  const header = document.createElement("div");
+  header.className = "pub-card-header";
+
+  const typePill = document.createElement("span");
+  typePill.className = "pub-type-pill";
+  typePill.textContent = p.type;
+  header.appendChild(typePill);
+
+  const actions = document.createElement("span");
+  actions.className = "pub-card-actions";
+  links.forEach(l => {
+    const a = document.createElement("a");
+    a.className = "pub-btn";
+    a.href = l.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.title = l.label;
+    const i = document.createElement("i");
+    i.className = "fas " + l.icon;
+    a.appendChild(i);
+    actions.appendChild(a);
+  });
+  if (p.bibtex) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pub-btn";
+    btn.title = "BibTeX citation";
+    const i = document.createElement("i");
+    i.className = "fas fa-quote-right";
+    btn.appendChild(i);
+    btn.addEventListener("click", () => openBibtex(p.bibtex));
+    actions.appendChild(btn);
+  }
+  if (hasAbstract) {
+    abstractToggle = document.createElement("button");
+    abstractToggle.type = "button";
+    abstractToggle.className = "pub-chevron-btn";
+    abstractToggle.title = "Show abstract";
+    const i = document.createElement("i");
+    i.className = "fas fa-chevron-down";
+    abstractToggle.appendChild(i);
+    actions.appendChild(abstractToggle);
+  }
+  header.appendChild(actions);
+  div.appendChild(header);
+
+  // ---- Title ----
   const titleDiv = document.createElement("div");
   titleDiv.className = "pub-title";
-  if (showTypeBadge) {
-    const typeBadge = document.createElement("span");
-    typeBadge.className = "pub-type-badge";
-    typeBadge.textContent = p.type;
-    titleDiv.appendChild(typeBadge);
-  }
   if (p.status) {
     const badge = document.createElement("span");
     badge.className = "pub-status";
@@ -1236,49 +1300,6 @@ function renderEntry(p, showTypeBadge) {
   } else {
     titleDiv.appendChild(document.createTextNode(p.title));
   }
-
-  const links = p.links || [];
-  const hasAbstract = !!(p.abstract && p.abstract.trim());
-  let abstractToggle = null;
-  if (links.length || p.bibtex || hasAbstract) {
-    const actions = document.createElement("span");
-    actions.className = "pub-title-actions";
-    links.forEach(l => {
-      const a = document.createElement("a");
-      a.className = "pub-btn";
-      a.href = l.url;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.title = l.label;
-      const i = document.createElement("i");
-      i.className = "fas " + l.icon;
-      a.appendChild(i);
-      actions.appendChild(a);
-    });
-    if (p.bibtex) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "pub-btn";
-      btn.title = "BibTeX citation";
-      const i = document.createElement("i");
-      i.className = "fas fa-quote-right";
-      btn.appendChild(i);
-      btn.addEventListener("click", () => openBibtex(p.bibtex));
-      actions.appendChild(btn);
-    }
-    if (hasAbstract) {
-      abstractToggle = document.createElement("button");
-      abstractToggle.type = "button";
-      abstractToggle.className = "pub-chevron-btn";
-      abstractToggle.title = "Show abstract";
-      const i = document.createElement("i");
-      i.className = "fas fa-chevron-down";
-      abstractToggle.appendChild(i);
-      actions.appendChild(abstractToggle);
-    }
-    titleDiv.appendChild(actions);
-  }
-
   div.appendChild(titleDiv);
 
   const authorsDiv = document.createElement("div");
@@ -1318,14 +1339,13 @@ function render() {
   const items = PUBLICATIONS.filter(p =>
     (activeType === "All" || p.type === activeType) && matchesSearch(p, searchQuery)
   );
-  const showTypeBadge = activeType === "All";
 
   getYearGroups(items).forEach(group => {
     const h2 = document.createElement("h2");
     h2.className = "year-heading";
     h2.textContent = group.label;
     root.appendChild(h2);
-    group.items.forEach(p => root.appendChild(renderEntry(p, showTypeBadge)));
+    group.items.forEach(p => root.appendChild(renderEntry(p)));
   });
 
   if (items.length === 0) {
