@@ -215,14 +215,19 @@
   border-bottom: 1px solid #eee;
 }
 
-/* ---- Individual publication rubric ---- */
+/* ---- Individual publication rubric (card) ---- */
 .pub-entry {
-  padding: 0.7em 0;
-  border-bottom: 1px solid #eee;
+  padding: 0.9em 1.1em;
+  margin-bottom: 12px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.pub-entry:last-child {
-  border-bottom: none;
+.pub-entry:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .pub-type-badge {
@@ -274,6 +279,57 @@
 .pub-title-actions {
   margin-left: 8px;
   white-space: nowrap;
+}
+
+.pub-chevron-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 0 0 6px;
+  border: none !important;
+  box-shadow: none !important;
+  background: none;
+  color: #555;
+  font: inherit;
+  font-size: 0.85em;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: color 0.15s ease;
+}
+
+.pub-chevron-btn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.pub-chevron-btn i {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.pub-chevron-btn:hover {
+  color: #c40000;
+}
+
+.pub-chevron-btn.open i {
+  transform: rotate(180deg);
+}
+
+.pub-abstract {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: #fafafa;
+  border-left: 3px solid #ddd;
+  color: #444;
+  font-size: 0.92em;
+  line-height: 1.5;
 }
 
 .empty-note {
@@ -401,18 +457,21 @@ const PUBLICATIONS = [
   type: "Book", group: "Forthcoming", order: 3, status: "in prep",
   authors: "Mohammadirad, Masoud",
   title: "Hewramî folktales",
+  abstract: "",
   venue: "", links: [], bibtex: null
 },
 {
   type: "Book", group: "Forthcoming", order: 2, status: "in review",
   authors: "Khan, Geoffrey, Paul Noorlander, Katherine Hodgson, Masoud Mohammadirad, Shuan Karim, Ergin Opengin",
   title: "Neo-Aramaic in the context of the languages of Western Asia",
+  abstract: "",
   venue: "", links: [], bibtex: null
 },
 {
   type: "Book", group: "2026", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "A grammar of Hewramî",
+  abstract: "This book is a comprehensive grammatical description of the Hewramî variety of Tekht, grounded in current linguistic methods. Hewramî is one of the most morphologically complex West Iranian languages. It is spoken by several thousand people in the high mountainous Hewraman region situated between Iranian and Iraqi Kurdistan. This work is primarily based on a corpus of 46 narratives, collected during several trips to the Hewraman region between 2016 and 2023. This corpus was supplemented by elicitation tasks to provide a detailed account of the phonology, morphology, and syntax of Hewramî. Additionally, the grammar touches on prosody and information structure. The analysis is grounded in linguistic theory, particularly informed by the functional-typological approach.",
   venue: "(Comprehensive Grammar Library). Berlin: Language Science Press",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://langsci-press.org/catalog/book/517" }
@@ -432,6 +491,7 @@ const PUBLICATIONS = [
   type: "Book", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "Echoes of the past: Hewramî narratives",
+  abstract: "",
   venue: "(Open Text Collections). Berlin: Language Science Press",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://langsci-press.org/catalog/book/531" }
@@ -451,6 +511,7 @@ const PUBLICATIONS = [
   type: "Book", group: "2024", order: 0,
   authors: "Khan, Geoffrey and Mohammadirad, Masoud",
   title: "Language Contact in Sanandaj: A study of the Impact of Iranian on Neo-Aramaic",
+  abstract: "",
   venue: "Berlin, Boston: De Gruyter Mouton",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://www.degruyter.com/document/doi/10.1515/9783111209180/html?lang=en" }
@@ -469,6 +530,7 @@ const PUBLICATIONS = [
   type: "Book", group: "2022", order: 0,
   authors: "Khan, Geoffrey, Mohammadirad, Masoud, Molin, Dorota, and Noorlander, Paul",
   title: "Neo-Aramaic and Kurdish Folklore from Northern Iraq: A Comparative Anthology with a Sample of Glossed Texts, 2 vols",
+  abstract: "",
   venue: "Cambridge, UK: Open Book Publishers",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://www.openbookpublishers.com/books/10.11647/obp.0306" }
@@ -488,30 +550,35 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "Forthcoming", order: 2, status: "in review",
   authors: "Mohammadirad, Masoud",
   title: "Differential case marking on non-core arguments in Hewramî: A multivariate analysis",
+  abstract: "",
   venue: "", links: [], bibtex: null
 },
 {
   type: "Journal Article", group: "Forthcoming", order: 2, status: "in review",
   authors: "Karim, Shuan Osman and Mohammadirad, Masoud",
   title: "The category of copula in Goranî dialects: grammaticalisation, variation, and contact",
+  abstract: "",
   venue: "", links: [], bibtex: null
 },
 {
   type: "Journal Article", group: "Forthcoming", order: 2, status: "in review",
   authors: "Haig, Geoffrey and Mohammadirad, Masoud",
   title: "Mapping variation in syntax: A case study of word order in OV languages within, and beyond, Western Asia",
+  abstract: "",
   venue: "<i>Iranian Studies</i>", links: [], bibtex: null
 },
 {
   type: "Journal Article", group: "Forthcoming", order: 2, status: "in review",
   authors: "Noorlander, Paul, Mohammadirad, Masoud, and Khan, Geoffrey",
   title: "Lexical borrowing across Neo-Aramaic dialects: An areal and quantitative approach",
+  abstract: "",
   venue: "", links: [], bibtex: null
 },
 {
   type: "Journal Article", group: "2026", order: 0,
   authors: "Karim, Shuan Osman and Mohammadirad, Masoud",
   title: "Demorphologization and Remorphologization: the development of a progressive prefix to a marker of negation in Hewramî",
+  abstract: "",
   venue: "<i>Journal of Historical Linguistics</i>",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1075/jhl.24015.kar" },
@@ -529,6 +596,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2026", order: 0,
   authors: "Mohammadirad, Masoud and Geoffrey Haig",
   title: "Subject agreement emerges from topic continuity, not topic shift. Corpus-based evidence from Hewramî, a West Iranian language",
+  abstract: "",
   venue: "<i>Word Structure</i> 19(1): 55–91",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.3366/word.2026.026" },
@@ -549,6 +617,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "A corpus-based analysis of object indexing in Hewramî",
+  abstract: "",
   venue: "<i>Corpus Linguistics and Linguistic Theory</i>",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1515/cllt-2025-0018" },
@@ -568,6 +637,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud and Shuan Karim",
   title: "Typology of verbal person/number syncretism in Western Iranian languages",
+  abstract: "",
   venue: "<i>Language Dynamics and Change</i> 15(1): 1–87",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1163/22105832-bja10038" },
@@ -589,6 +659,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud and Shuan Karim",
   title: "The development of imperfective and subjunctive marking in Hewramî",
+  abstract: "",
   venue: "<i>Linguistics</i> 63(5): 1265–1292",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1515/ling-2023-0247" },
@@ -609,6 +680,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "Gorani substrate within Kurdish: Evidence from Southern dialects of Central Kurdish",
+  abstract: "",
   venue: "<i>Journal of Historical Linguistics</i> 15(3): 426–462",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1075/jhl.23001.moh" },
@@ -630,6 +702,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Anderson, Cormac, Matthew Scarborough, Lechosław Jocz, Martin Joachim Kümmel, Thomas Jügel, Britta Irslinger, Roland Pooth, Henrik Liljegren, Richard F. Strand, Geoffrey Haig, Masoud Mohammadirad, et al.",
   title: "The Indo-European Cognate Relationships Dataset",
+  abstract: "",
   venue: "<i>Scientific Data</i> 12(1)",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1038/s41597-025-05445-3" }
@@ -649,6 +722,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2025", order: 0,
   authors: "Mohammadirad, Masoud and Ergin Öpengin",
   title: "Lenition of voiced stops across Kurdish",
+  abstract: "",
   venue: "<i>Folia Linguistica</i> 59(s46-s1): 71–101",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2024_Lenition_Kurdish.pdf" },
@@ -670,6 +744,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2024", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "External possession constructions in Laki",
+  abstract: "",
   venue: "<i>Linguistic Discovery</i> 18(1): 1–25",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "Mohammadirad_2024_External-possession-constructions-in-Laki.pdf" }
@@ -688,6 +763,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2021", order: 0,
   authors: "Mohammadirad, Masoud and Pollet Samvelian",
   title: "Procliticization as a residual of second positioning: Evidence from West Iranian languages",
+  abstract: "",
   venue: "<i>Folia Linguistica Historica</i> 55(s42-s2): 291–338",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2021 Procliticization as a residual of second positioning.pdf" },
@@ -708,6 +784,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2020", order: 1,
   authors: "Mohammadirad, Masoud",
   title: "Predicative possession across Western Iranian languages",
+  abstract: "",
   venue: "<i>Folia Linguistica</i> 55(3): 497–526",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2020 Predicative possession across Western Iranian languages.pdf" },
@@ -728,6 +805,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2020", order: 1,
   authors: "Anonby, Erik, Mortaza Taheri-Ardali, Laurentia Schreiber, Christiane Bulut, Geoffrey Haig, Peiman Pishyar Dehkordi, Mahnaz Talebi-Dastenaei, Fatemeh Shahverdi, Hossein Hashemi Zarajabad, Masoud Mohammadirad, et al.",
   title: "Turkic languages in the Atlas of the Languages of Iran (ALI)",
+  abstract: "",
   venue: "<i>Turkic Languages</i> 24(2): 290–308",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "Turkic_languages_in_the_Atlas_of_the_Lan.pdf" }
@@ -746,6 +824,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2018", order: 0,
   authors: "Mohammadirad, Masoud and Mohammad Rasekh-Mahand",
   title: "Functions of the dative: An Iranian perspective",
+  abstract: "",
   venue: "<i>Language Typology and Universals / STUF</i> 71(4): 539–575",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication (DOI)", url: "https://doi.org/10.1515/stuf-2018-0021" },
@@ -766,6 +845,7 @@ const PUBLICATIONS = [
   type: "Journal Article", group: "2017", order: 0,
   authors: "Mohammadirad, Masoud and Mohammad Rasekh-Mahand",
   title: "Instrumental semantic map in Western Iranian languages",
+  abstract: "",
   venue: "<i>Language Typology and Universals / STUF</i> 70(4): 579–610",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2017 Instrumental semantic map in Western Iranian languages.pdf" },
@@ -788,6 +868,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "Forthcoming", order: 2, status: "in review",
   authors: "Mohammadirad, Masoud",
   title: "Clitic pronouns in Iranian languages",
+  abstract: "",
   venue: "In Diego Pescarini &amp; Eulàlia Bonet (eds.), <i>Oxford handbook of clitics</i>. Oxford: Oxford University Press",
   links: [], bibtex: null
 },
@@ -795,6 +876,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "Forthcoming", order: 1, status: "in press",
   authors: "Mohammadirad, Masoud",
   title: "Bound argument ordering across Central Kurdish and the Gorani substrate",
+  abstract: "",
   venue: "In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin &amp; Ergin Öpengin (eds.), <i>Oxford handbook of Kurdish Linguistics</i>. Oxford: Oxford University Press",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://global.oup.com/academic/product/the-oxford-handbook-of-kurdish-linguistics-9780197788936?lang=en&cc=us" }
@@ -805,6 +887,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "Forthcoming", order: 1, status: "in press",
   authors: "Mohammadirad, Masoud and Gholamhossein Karimi Doostan",
   title: "Southern Kurdish",
+  abstract: "",
   venue: "In Jaffer Sheyholislami, Geoffrey Haig, Haidar Khezri, Salih Akin &amp; Ergin Öpengin (eds.), <i>Oxford handbook of Kurdish Linguistics</i>. Oxford: Oxford University Press",
   links: [
     { icon: "fa-up-right-from-square", label: "Publisher page", url: "https://global.oup.com/academic/product/the-oxford-handbook-of-kurdish-linguistics-9780197788936?lang=en&cc=us" }
@@ -815,6 +898,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "2024", order: 0,
   authors: "Mohammadirad, Masoud",
   title: "Zagros region: The Kurdish-Gorani continuum",
+  abstract: "",
   venue: "In Geoffrey Haig, Mohammad Rasekh-Mahand, Donald Stilo, Laurentia Schreiber &amp; Nils Schiborr (eds.), <i>Post-predicate elements in the Western Asian Transition Zone: a corpus-based approach to areal typology</i>, 245–279. Berlin: Language Science Press",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "Mohammadirad_2024_Zagros.pdf" },
@@ -835,6 +919,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "2024", order: 0,
   authors: "Khan, Geoffrey and Mohammadirad, Masoud",
   title: "Gorani influence on NENA",
+  abstract: "",
   venue: "In Shuan Osman Karim &amp; Saloumeh Gholami (eds.), <i>Gorani in its Historical and Linguistic Context</i>, 171–198. Berlin, Boston: De Gruyter Mouton",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "Gorani substrate in Kurdish.pdf" },
@@ -856,6 +941,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "2022", order: 0,
   authors: "Öpengin, Ergin and Mohammadirad, Masoud",
   title: "Pronominal Clitics Across Kurdish: Areal Distribution, Structural Variation, and Diachrony",
+  abstract: "",
   venue: "In Yaron Matras, Ergin Öpengin &amp; Geoffrey Haig (eds.), <i>Structural and Typological Variation in the Dialects of Kurdish</i>, 181–237. London: Palgrave Macmillan",
   links: [
     { icon: "fa-up-right-from-square", label: "Publication", url: "https://doi.org/10.1007/978-3-030-78837-7_5" }
@@ -876,6 +962,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "2022", order: 0,
   authors: "Noorlander, Paul and Mohammadirad, Masoud",
   title: "Narrative Style and Discourse in Kurdish and Neo-Aramaic Oral Literature",
+  abstract: "",
   venue: "In Paul M. Noorlander &amp; Masoud Mohammadirad (eds.), <i>Neo-Aramaic and Kurdish Folklore of Northern Iraq: A Comparative Anthology with a Sample of Glossed Texts</i>, 85–155. Cambridge, UK: Open Book Publishers",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2022 narrative style and discourse in Kurdish and Neo-Aramaic.pdf" },
@@ -896,6 +983,7 @@ const PUBLICATIONS = [
   type: "Book Chapter", group: "2019", order: 0,
   authors: "Anonby, Erik, Masoud Mohammadirad, and Jaffer Sheyholislami",
   title: "Kordestan Province in the Atlas of the Languages of Iran: Research process, language distribution, and language classification",
+  abstract: "",
   venue: "In Songül Gündoğdu, Ergin Öpengin, Geoffrey Haig &amp; Erik Anonby (eds.), <i>Current issues in Kurdish linguistics</i>, 9–38. Bamberg: Bamberg University Press",
   links: [
     { icon: "fa-file-pdf", label: "PDF", url: "2019 Kordestan_Province_in_the_Atlas_of_the_L.pdf" },
@@ -1091,7 +1179,7 @@ function stripHtml(html) {
 
 function matchesSearch(p, q) {
   if (!q) return true;
-  const haystack = [p.title, p.authors, stripHtml(p.venue), p.group, p.status || ""]
+  const haystack = [p.title, p.authors, stripHtml(p.venue), p.group, p.status || "", p.abstract || ""]
     .join(" ").toLowerCase();
   return haystack.includes(q.toLowerCase());
 }
@@ -1150,7 +1238,9 @@ function renderEntry(p, showTypeBadge) {
   }
 
   const links = p.links || [];
-  if (links.length || p.bibtex) {
+  const hasAbstract = !!(p.abstract && p.abstract.trim());
+  let abstractToggle = null;
+  if (links.length || p.bibtex || hasAbstract) {
     const actions = document.createElement("span");
     actions.className = "pub-title-actions";
     links.forEach(l => {
@@ -1176,6 +1266,16 @@ function renderEntry(p, showTypeBadge) {
       btn.addEventListener("click", () => openBibtex(p.bibtex));
       actions.appendChild(btn);
     }
+    if (hasAbstract) {
+      abstractToggle = document.createElement("button");
+      abstractToggle.type = "button";
+      abstractToggle.className = "pub-chevron-btn";
+      abstractToggle.title = "Show abstract";
+      const i = document.createElement("i");
+      i.className = "fas fa-chevron-down";
+      abstractToggle.appendChild(i);
+      actions.appendChild(abstractToggle);
+    }
     titleDiv.appendChild(actions);
   }
 
@@ -1191,6 +1291,21 @@ function renderEntry(p, showTypeBadge) {
     venueDiv.className = "pub-venue";
     venueDiv.innerHTML = p.venue;
     div.appendChild(venueDiv);
+  }
+
+  if (hasAbstract) {
+    const abstractDiv = document.createElement("div");
+    abstractDiv.className = "pub-abstract";
+    abstractDiv.textContent = p.abstract;
+    abstractDiv.style.display = "none";
+    div.appendChild(abstractDiv);
+
+    abstractToggle.addEventListener("click", () => {
+      const open = abstractDiv.style.display === "none";
+      abstractDiv.style.display = open ? "block" : "none";
+      abstractToggle.title = open ? "Hide abstract" : "Show abstract";
+      abstractToggle.classList.toggle("open", open);
+    });
   }
 
   return div;
@@ -1235,6 +1350,12 @@ function makePill(label, count, isActive, onClick) {
 function renderPills() {
   const wrap = document.getElementById("filterPills");
   wrap.innerHTML = "";
+
+  wrap.appendChild(makePill("All", PUBLICATIONS.length, activeType === "All", () => {
+    activeType = "All";
+    renderPills();
+    render();
+  }));
 
   TYPE_ORDER.forEach(type => {
     const count = PUBLICATIONS.filter(p => p.type === type).length;
