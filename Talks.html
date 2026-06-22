@@ -176,7 +176,7 @@ const TALKS = [
  {type:"Workshop",group:"2023",month:6,date:"June 2023",
  authors:"Mohammadirad, Masoud",
  title:"Narrative style and discourse in Kurdish and Neo-Aramaic oral literature",
- venue:"Workshop Peacebuilding, Dialogue and Heritage: Documentation of Oral Culture in the Kurdistan Region – Iraq}, University of Kurdistan-Hewlêr, Kurdistan region, Iraq",
+ venue:"Peacebuilding, Dialogue and Heritage: Documentation of Oral Culture in the Kurdistan Region – Iraq}, University of Kurdistan-Hewlêr, Kurdistan region, Iraq",
  links:[], 
   bibtex: `@unpublished{Mohammadirad2023-Hewler,
 title = {{Narrative style and discourse in Kurdish and Neo-Aramaic oral literature}, Paper presented at the Workshop \textit{Peacebuilding, Dialogue and Heritage: Documentation of Oral Culture in the Kurdistan Region – Iraq}, University of Kurdistan-Hewlêr, Kurdistan region, Iraq},
@@ -319,7 +319,7 @@ day = {24}}`},
 ];
 </script>
 <script id="talk-app">
-const TYPE_ORDER=["Conference Talk","Invited Talk","Poster"];
+const TYPE_ORDER=["Paper","Invited Talk", "Workshop", "Poster"];
 let activeType="All",searchQuery="";
 function matchesSearch(t,q){if(!q)return true;return[t.title,t.authors,t.venue,t.group,t.date||""].join(" ").toLowerCase().includes(q.toLowerCase())}
 function getYearGroups(items){const by={};items.forEach(t=>(by[t.group]=by[t.group]||[]).push(t));return Object.keys(by).sort((a,b)=>Number(b)-Number(a)).map(y=>({label:y,items:by[y].sort((a,b)=>(b.month||0)-(a.month||0))}))}
