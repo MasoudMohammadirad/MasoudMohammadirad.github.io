@@ -6,260 +6,338 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 	<style>
-
-	body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 20px;
-        }
-	/* TOP NAV */
-	.top-nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1em 2em;
-		border-bottom: 1px solid #ddd;
-		background: white;
-	}
-
-	.site-title {
-		font-size: 1.3em;
-		font-weight: 600;
-		text-decoration: none;
-		color: #333;
-	}
-
-	.nav-tabs a {
-		margin-left: 1.5em;
-		text-decoration: none;
-		color: #333;
-	}
-
-	.nav-tabs a:hover {
-		border-bottom: 2px solid #333;
-	}
-
-	/* PAGE WRAPPER */
-	.content {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 2em;
-	}
-
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-
-	.features article {
-		margin-bottom: 2em;
-	}
+		body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.6;color:#333;max-width:1000px;margin:0 auto;padding:0 20px}
+		.top-nav{display:flex;justify-content:space-between;align-items:center;padding:1em 2em;border-bottom:1px solid #ddd;background:white}
+		.site-title{font-size:1.3em;font-weight:600;text-decoration:none;color:#333}
+		.nav-tabs a{margin-left:1.5em;text-decoration:none;color:#333}
+		.nav-tabs a:hover{border-bottom:2px solid #333}
+		img{max-width:100%;height:auto}
+		.pub-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:.6em 0 .4em}
+		.filter-pill{font-size:.68em;font-weight:400!important;padding:2px 8px;border:1px solid #000!important;border-radius:999px;background:#fff!important;color:#000!important;box-shadow:none!important;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer;font-family:inherit;transition:all .15s ease}
+		.filter-pill:hover{border-color:#c40000!important;color:#c40000!important}
+		.filter-pill.active{background:#fff!important;border-color:#c40000!important;color:#c40000!important;font-weight:600!important}
+		.search-wrap{margin-left:auto;flex:1 1 220px;max-width:280px}
+		.search-input{width:100%;box-sizing:border-box;padding:6px 10px;border:1px solid #ccc;border-radius:6px;font-size:.9em;font-family:inherit}
+		.search-input:focus{outline:2px solid #c40000;outline-offset:1px;border-color:#c40000}
+		.results-count{font-size:.85em;color:#777;margin:.5em 0 1.2em}
+		.year-heading{font-size:1.7em;font-weight:700;color:#c40000;margin:1.3em 0 .4em;padding-bottom:3px;border-bottom:1px solid #eee}
+		.pub-entry{padding:.9em 1.1em;margin-bottom:12px;background:#faf6ec;border:1px solid #e6ddc7;border-radius:10px;transition:border-color .15s ease,box-shadow .15s ease}
+		.pub-entry:hover{border-color:#d9cca0;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+		.pub-card-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+		.pub-type-pill{display:inline-flex;align-items:center;background:#c40000;color:#fff;font-size:.66em;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:4px 12px;border-radius:999px;white-space:nowrap}
+		.pub-card-actions{display:flex;align-items:center;flex-wrap:nowrap;gap:4px}
+		.talk-date{font-size:.78em;color:#777;margin-bottom:3px}
+		.pub-title{font-weight:600}
+		.pub-authors{color:#444;margin-top:2px}
+		.pub-venue{color:#555;font-size:.9em;margin-top:3px}
+		.pub-btn{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;margin:0;border:1px solid #c40000!important;border-radius:4px;color:#c40000;background:white;box-shadow:none!important;outline:none;font:inherit;font-size:.78em;line-height:1;text-decoration:none;cursor:pointer;vertical-align:middle;-webkit-appearance:none;appearance:none;transition:all .15s ease}
+		.pub-btn::-moz-focus-inner{border:0;padding:0}
+		.pub-btn:hover{background:#c40000;color:white!important}
+		.bibtex-popup{position:fixed;right:20px;top:180px;width:280px;background:#fff;border:1px solid #ddd;box-shadow:0 3px 12px rgba(0,0,0,.12);padding:10px;display:none;z-index:9999;font-size:.8em}
+		.bibtex-box{font-family:monospace;font-size:.75em;background:#f7f7f7;padding:6px;margin-top:5px;white-space:pre;line-height:1.2;max-height:220px;overflow-y:auto;overflow-x:auto}
+		.copy-btn{margin-top:6px;padding:3px 8px;font-size:.75em;cursor:pointer}
+		.close-btn{float:right;cursor:pointer;font-size:14px}
+		.empty-note{color:#777;font-style:italic;padding:1em 0 2em}
+		@media(max-width:600px){.search-wrap{max-width:100%;flex-basis:100%}}
 	</style>
 </head>
-
 <body class="is-preload">
 
-<!-- TOP NAV (restored) -->
 <header class="top-nav">
 	<a href="index.html" class="site-title">Masoud Mohammadirad</a>
-
 	<nav class="nav-tabs">
-		<!-- <a href="index.html">Home</a> -->
 		<a href="publications.html">Publications</a>
 		<a href="Talks.html">Talks</a>
 		<a href="projects.html">Projects</a>
 		<a href="CV__Masoud_Mohammadirad_April_2026.pdf">CV</a>
 	</nav>
-
-
 </header>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<div id="main"><div class="inner"><section>
+	<header class="main"><h1>Talks</h1></header>
+	<div class="pub-toolbar" id="filterPills"></div>
+	<div class="pub-toolbar" style="margin-top:0;">
+		<div class="search-wrap">
+			<input type="text" id="searchInput" class="search-input" placeholder="Search by title, author, venue, year…" />
+		</div>
+	</div>
+	<div class="results-count" id="resultsCount"></div>
+	<div id="talkRoot"></div>
+</section></div></div>
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Talks</h1>
-									</header>
+<div id="bibtexPopup" class="bibtex-popup">
+	<span class="close-btn" onclick="closeBibtex()">×</span>
+	<strong>BibTeX Citation</strong>
+	<div id="bibtexContent" class="bibtex-box"></div>
+	<button class="copy-btn" onclick="copyBibtex()">Copy</button>
+</div>
 
-									<span class="image main"><img src="trex.jpg" alt="" /></span>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+function openBibtex(text){const c=text.replace(/^\s+/gm,'');document.getElementById("bibtexContent").textContent=c;document.getElementById("bibtexPopup").style.display="block"}
+function closeBibtex(){document.getElementById("bibtexPopup").style.display="none"}
+function copyBibtex(){navigator.clipboard.writeText(document.getElementById("bibtexContent").textContent)}
+</script>
 
-									<section>
-										<header class="major">
-											<h2>Talks in linguistic conferences</h2>
-										</header>
-										<div class="features">
-											<table style="width: 100%">
-												<colgroup>
-												  <col span="1" style="width: 10%;">
-												  <col span="1" style="width: 90%;">
-												</colgroup>
-												<tbody>
-													<tr> 
-														<td style="vertical-align:text-top;">Aug 2025</td>
-														<td style="vertical-align:text-top;"> Karim, Shuan & Mohammadirad, Masoud. Defining a documentary protocol for Kurdish linguisitcs, Paper presented at Seventh International Conference on Kurdish Linguistics (ICKL 7), Bamberg University, 28-29 August 2025.</td>
-													</tr>
-														<tr> 
-														<td style="vertical-align:text-top;">Aug 2025</td>
-														<td style="vertical-align:text-top;"> Mohammadirad, Masoud. Differential case marking on oblique arguments in Hewramî, Paper presented at Seventh International Conference on Kurdish Linguistics (ICKL 7), Bamberg University, 28-29 August 2025.</td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">May 2025</td>
-														<td style="vertical-align:text-top;"> Mohammadirad, Masoud & Shuan Karim. The typology of verbal person/number syncretism in Western Iranian languages, Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto, 23-25 May 2025.</td>
-													</tr>	
-													<tr> 
-														<td style="vertical-align:text-top;">May 2025</td>
-														<td style="vertical-align:text-top;"> Samvelian, Pollet & Mohammadirad, Masoud. The syntactic status of the preverbal element in Hewramî complex predicates,Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto, 23-25 May 2025.</td>
-													</tr>			
-													<tr> 
-														<td style="vertical-align:text-top;">Jan 2025</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. Object indexing in Hewramî: a corpus study, Paper presented at Tenth International Conference on Iranian Linguistics (ICIL 10), University of Tuscia, 13-15 January 2025.</td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Dec 2024</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. Differential A indexing in Hewramî: a corpus study. Paper presented at LACIM 2024 international conference (European research network on linguistics and languages of the Anatolia-Caucasus-Iran-Mesopotamia area), at Inalco. </td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Nov 2024</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. Ergavtive case marking in Hewramî: a corpus study. Paper presented at Workshop on ergativity and information structure, Humboldt-Universität zu Berlin, 21st to 22nd November 2024.</td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Sept 2023</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. Remarks on the category of copula in Gorani dialects. Paper presented at 26th International Conference on Historical Linguistics (ICHL 26), University of Heidelberg. </td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Sept 2023</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="Complex predicates Hawrami.pdf">Complex predicates in Hawrami.</a> Paper presented at the 6th International Conference on Kurdish Linguistics (ICKL6) at the Goethe University Frankfurt.</td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Nov 2022</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="body part loans in NENA.pdf">Body-Part Loans in North-Eastern Neo-Aramaic Dialects.</a> Paper presented at the 2022 conference of the European research network on linguistics and languages of the Anatolia-Caucasus-Iran-Mesopotamia area (LACIM) at Inalco. </td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Sept 2022</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="Gorani substrate in Kurdish.pdf">The Gorani substrate in Southern Central Kurdish dialects.</a> Paper presented at the "Minorities in the Zagros - Language & Identity'' workshop at the Goethe University Fankfurt. </td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Jun 2022</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud and Geoffrey Khan. <a href="Definiteness Uppsala Mohammadirad Khan.pdf">The definite marker –ake in the Trans-Zab North-Eastern Neo-Aramaic; its origin and convergence with Iranian.</a> Paper presented at the workshop on definiteness in Iranian languages at Uppsala university. </td>
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Jun 2022</td>
-														<td style="vertical-align:text-top;">Haig, Geoffrey, Maryam Nourzaei, and Masoud Mohammadirad. Definiteness marking in Kurdish and Balochi: parallels and divergences. Paper presented at the workshop on definiteness in Iranian languages at Uppsala university. </td>
-													</tr>
-													<tr> 
-												  <tr> 
-													<td style="vertical-align:text-top;">Sep 2021</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud. External possession in Laki. Paper presented at the 5th International Conference on Kurdish Linguistics (ICKL5) at the University of Graz. </td>
-												  </tr>
-												  <tr> 
-													<td style="vertical-align:text-top;">Sep 2019</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud. Post-predicate bound oblique arguments across Kurdish. Paper presented at the 4th International Conference on Kurdish Linguistics (ICKL4) at the University of Rouen. </td>
-												  </tr>
-												  <tr> 
-													<td style="vertical-align:text-top;">Sep 2019</td>
-													<td style="vertical-align:text-top;">Haig, Geoffrey, and Masoud Mohammadirad. Definiteness in Central Kurdish:sources and outcomes. Paper presented at the 4th International Conference on Kurdish Linguistics (ICKL4) at the University of Rouen. </td>
-												  </tr>
-												  <tr> 
-													<td style="vertical-align:text-top;">Aug 2019</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud. Existential predicative possession: a subtype of non-canonical constructions in Western Iranian languages. Presented at 52nd annual meeting of Societas Linguistica Europaea (SLE2019) at the University of Leipzig.</td>
-												  </tr>
-												  <tr> 
-													<td style="vertical-align:text-top;">Apr 2019</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud.<a href="Presentation Nacil Mohammadirad.pdf"> Procliticization mechanism in Western Iranian languages: its extent and development.</a> Presented at the second North American Conference on Iranian Linguistics (NACIL2). University of Arizona.</td> 
-												  </tr> 
-												  <tr> 
-													<td style="vertical-align:text-top;">Jun 2015</td>
-													<td style="vertical-align:text-top;">Mohammadirad, Masoud. Instrumental semantic map in some Iranian languages. Sixth International Conference on Iranian Linguistics. Tbilisi, Georgia. </td>
-												  </tr>
-												</tbody>
-											  </table>
-										</div>
-									</section>
-
-									<section>
-										<header class="major">
-											<h2>Invited talks</h2>
-										</header>
-										<div class="features">
-											<table style="width: 100%">
-												<colgroup>
-												  <col span="1" style="width: 10%;">
-												  <col span="1" style="width: 90%;">
-												</colgroup>
-												<tbody>
-													<tr> 
-														<td style="vertical-align:text-top;">Feb 2026</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud (Feb. 2026). The documentation of Hewramî, Talk at the Ancient India and Iran Trust, Cambridge, UK.</td> 
-													</tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Sep 2022</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud (Sept. 2022). The Gorani substrate in Southern Central Kurdish dialects. Paper presented at the “Minorities in the Zagros - Language Identity” workshop at the Goethe University Frankfurt. </td>
-													  </tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Jun 2022</td>
-														<td style="vertical-align:text-top;">Haig, Geoffrey, Maryam Nourzaei, and Masoud Mohammadirad (June 2022). Definiteness marking in Kurdish and Balochi: parallels and divergences, Paper presented at the workshop on definiteness in Iranian languages at Uppsala university. </td>
-													  </tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Jun 2022</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud and Geoffrey Khan. The definite marker –ake in the Trans-Zab North-Eastern Neo-Aramaic; its origin and convergence with Iranian, Paper presented at the workshop on definiteness in Iranian languages at Uppsala university. </td>
-													  </tr>
-													<tr> 
-														<td style="vertical-align:text-top;">Mar 2017</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud.  Pronominal clitics in Southern Central Kurdish varieties, Paper presented at the workshop on definiteness in Iranian languages at the Goethe University Fankfurt. </td>
-													  </tr>
-												</tbody>
-											  </table>
-										</div>
-									</section>
-
-									<section>
-										<header class="major">
-											<h2>Posters</h2>
-										</header>
-										<div class="features">
-											<table style="width: 100%">
-												<colgroup>
-												  <col span="1" style="width: 10%;">
-												  <col span="1" style="width: 90%;">
-												</colgroup>
-												<tbody>
-													<tr> 
-														<td style="vertical-align:text-top;">Sep 2021</td>
-														<td style="vertical-align:text-top;">Mohammadirad, Masoud. <a href="The_development_of_bound_person_indexing.pdf"> The development of person indexing in western Iranian languages.</a> Presented at the 13th Conference of the Association for Linguistic Typology (ALT 13), University of Pavia. </td>
-													  </tr>
-												</tbody>
-											  </table>
-										</div>
-									</section>
-									
-									
-									
-									
-								</section>
-
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					
-					
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+<script id="talk-data">
+const TALKS = [
+// -------- CONFERENCE TALKS --------
+{type:"Conference Talk",group:"2025",month:8,date:"Aug 2025",
+ authors:"Karim, Shuan and Mohammadirad, Masoud",
+ title:"Defining a documentary protocol for Kurdish linguistics",
+ venue:"Seventh International Conference on Kurdish Linguistics (ICKL 7), Bamberg University, 28–29 August 2025",
+ links:[],bibtex:null},
+{type:"Conference Talk",group:"2025",month:8,date:"Aug 2025",
+ authors:"Mohammadirad, Masoud",
+ title:"Differential case marking on oblique arguments in Hewramî",
+ venue:"Seventh International Conference on Kurdish Linguistics (ICKL 7), Bamberg University, 28–29 August 2025",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2025ICKL,
+  author={Mohammadirad, Masoud},
+  title={Differential case marking on oblique arguments in Hewramî},
+  note={Paper presented at the Seventh International Conference on Kurdish Linguistics (ICKL 7), Bamberg University},
+  year={2025},month={8}}`},
+{type:"Conference Talk",group:"2025",month:5,date:"May 2025",
+ authors:"Mohammadirad, Masoud and Karim, Shuan Osman",
+ title:"The typology of verbal person/number syncretism in Western Iranian languages",
+ venue:"Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto, 23–25 May 2025",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2025nacil,
+  author={Mohammadirad, Masoud and Karim, Shuan Osman},
+  title={The typology of verbal person/number syncretism in Western Iranian languages},
+  note={Paper presented at the Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto},
+  year={2025},month={5}}`},
+{type:"Conference Talk",group:"2025",month:5,date:"May 2025",
+ authors:"Samvelian, Pollet and Mohammadirad, Masoud",
+ title:"The syntactic status of the preverbal element in Hewramî complex predicates",
+ venue:"Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto, 23–25 May 2025",
+ links:[],
+ bibtex:`@unpublished{Samvelian2025nacil,
+  author={Samvelian, Pollet and Mohammadirad, Masoud},
+  title={The syntactic status of the preverbal element in Hewramî complex predicates},
+  note={Paper presented at the Fourth North American Conference on Iranian Linguistics (NACIL 4), University of Toronto},
+  year={2025},month={5}}`},
+{type:"Conference Talk",group:"2025",month:1,date:"Jan 2025",
+ authors:"Mohammadirad, Masoud",
+ title:"Object indexing in Hewramî: a corpus study",
+ venue:"Tenth International Conference on Iranian Linguistics (ICIL 10), University of Tuscia, 13–15 January 2025",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2025ICIL,
+  author={Mohammadirad, Masoud},
+  title={Object indexing in Hewramî: a corpus study},
+  note={Paper presented at the Tenth International Conference on Iranian Linguistics (ICIL 10), University of Tuscia},
+  year={2025},month={1}}`},
+{type:"Conference Talk",group:"2024",month:12,date:"Dec 2024",
+ authors:"Mohammadirad, Masoud",
+ title:"Differential A indexing in Hewramî: a corpus study",
+ venue:"LACIM 2024 international conference, Inalco, Paris, 16–18 December 2024",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2024LACIM,
+  author={Mohammadirad, Masoud},
+  title={Differential A indexing in Hewramî: a corpus study},
+  note={Paper presented at the LACIM 2024 international conference, Inalco, Paris},
+  year={2024},month={12}}`},
+{type:"Conference Talk",group:"2024",month:11,date:"Nov 2024",
+ authors:"Mohammadirad, Masoud",
+ title:"Ergative case marking in Hewramî: a corpus study",
+ venue:"Workshop on ergativity and information structure, Humboldt-Universität zu Berlin, 21–22 November 2024",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2024Berlin,
+  author={Mohammadirad, Masoud},
+  title={Ergative case marking in Hewramî: a corpus study},
+  note={Paper presented at the Workshop on ergativity and information structure, Humboldt-Universität zu Berlin},
+  year={2024},month={11}}`},
+{type:"Conference Talk",group:"2023",month:9,date:"Sep 2023",
+ authors:"Mohammadirad, Masoud",
+ title:"Remarks on the category of copula in Gorani dialects",
+ venue:"26th International Conference on Historical Linguistics (ICHL 26), University of Heidelberg, 4–8 September 2023",
+ links:[],
+ bibtex:`@unpublished{MohammadiradICHL26,
+  author={Mohammadirad, Masoud},
+  title={Remarks on the category of copula in Gorani dialects},
+  note={Paper presented at the 26th International Conference on Historical Linguistics (ICHL 26), University of Heidelberg},
+  year={2023},month={9}}`},
+{type:"Conference Talk",group:"2023",month:9,date:"Sep 2023",
+ authors:"Mohammadirad, Masoud",
+ title:"Complex predicates in Hawrami",
+ venue:"6th International Conference on Kurdish Linguistics (ICKL 6), Goethe University Frankfurt, September 2023",
+ links:[{icon:"fa-file-pdf",label:"PDF",url:"Complex predicates Hawrami.pdf"}],
+ bibtex:`@unpublished{Mohammadirad2023Frankfurt,
+  author={Mohammadirad, Masoud},
+  title={Complex predicates in Hawrami},
+  note={Paper presented at the 6th International Conference on Kurdish Linguistics (ICKL 6), Goethe University Frankfurt},
+  year={2023},month={9}}`},
+{type:"Conference Talk",group:"2022",month:11,date:"Nov 2022",
+ authors:"Mohammadirad, Masoud",
+ title:"Body-Part Loans in North-Eastern Neo-Aramaic Dialects",
+ venue:"LACIM 2022 international conference, Inalco, Paris, 16–18 November 2022",
+ links:[{icon:"fa-file-pdf",label:"PDF",url:"body part loans in NENA.pdf"}],
+ bibtex:`@unpublished{Mohammadirad2022LACIM,
+  author={Mohammadirad, Masoud},
+  title={Body-Part Loans in North-Eastern Neo-Aramaic Dialects},
+  note={Paper presented at the LACIM 2022 international conference, Inalco, Paris},
+  year={2022},month={11}}`},
+{type:"Conference Talk",group:"2021",month:9,date:"Sep 2021",
+ authors:"Mohammadirad, Masoud",
+ title:"External possession in Laki",
+ venue:"5th International Conference on Kurdish Linguistics (ICKL 5), University of Graz, 25 September 2021",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2021Laki,
+  author={Mohammadirad, Masoud},
+  title={External possession in Laki},
+  note={Paper presented at the 5th International Conference on Kurdish Linguistics (ICKL 5), University of Graz},
+  year={2021},month={9}}`},
+{type:"Conference Talk",group:"2019",month:9,date:"Sep 2019",
+ authors:"Mohammadirad, Masoud",
+ title:"Post-predicate bound oblique arguments across Kurdish",
+ venue:"4th International Conference on Kurdish Linguistics (ICKL 4), University of Rouen, September 2019",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2019Rouen,
+  author={Mohammadirad, Masoud},
+  title={Post-predicate bound oblique arguments across Kurdish},
+  note={Paper presented at the 4th International Conference on Kurdish Linguistics (ICKL 4), University of Rouen},
+  year={2019},month:{9}}`},
+{type:"Conference Talk",group:"2019",month:9,date:"Sep 2019",
+ authors:"Haig, Geoffrey and Mohammadirad, Masoud",
+ title:"Definiteness in Central Kurdish: sources and outcomes",
+ venue:"4th International Conference on Kurdish Linguistics (ICKL 4), University of Rouen, September 2019",
+ links:[],
+ bibtex:`@unpublished{Haig2019Rouen,
+  author={Haig, Geoffrey and Mohammadirad, Masoud},
+  title={Definiteness in Central Kurdish: sources and outcomes},
+  note={Paper presented at the 4th International Conference on Kurdish Linguistics (ICKL 4), University of Rouen},
+  year={2019},month:{9}}`},
+{type:"Conference Talk",group:"2019",month:8,date:"Aug 2019",
+ authors:"Mohammadirad, Masoud",
+ title:"Existential predicative possession: a subtype of non-canonical constructions in Western Iranian languages",
+ venue:"52nd Annual Meeting of the Societas Linguistica Europaea (SLE 2019), University of Leipzig, August 2019",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2019Leipzig,
+  author={Mohammadirad, Masoud},
+  title={Existential predicative possession: a subtype of non-canonical constructions in Western Iranian languages},
+  note={Paper presented at the 52nd Annual Meeting of the Societas Linguistica Europaea (SLE 2019), University of Leipzig},
+  year={2019},month={8}}`},
+{type:"Conference Talk",group:"2019",month:4,date:"Apr 2019",
+ authors:"Mohammadirad, Masoud",
+ title:"Procliticization mechanism in Western Iranian languages: its extent and development",
+ venue:"Second North American Conference on Iranian Linguistics (NACIL 2), University of Arizona, 19–21 April 2019",
+ links:[{icon:"fa-file-pdf",label:"PDF",url:"Presentation Nacil Mohammadirad.pdf"}],
+ bibtex:`@unpublished{Mohammadirad2019Arizona,
+  author={Mohammadirad, Masoud},
+  title={Procliticization mechanism in Western Iranian languages: its extent and development},
+  note={Paper presented at the Second North American Conference on Iranian Linguistics (NACIL 2), University of Arizona},
+  year={2019},month={4}}`},
+{type:"Conference Talk",group:"2015",month:6,date:"Jun 2015",
+ authors:"Mohammadirad, Masoud",
+ title:"Instrumental semantic map in some Iranian languages",
+ venue:"Sixth International Conference on Iranian Linguistics (ICIL 6), Tbilisi, Georgia, 22–26 June 2015",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2015ICIL,
+  author={Mohammadirad, Masoud},
+  title={Instrumental semantic map in some Iranian languages},
+  note={Paper presented at the Sixth International Conference on Iranian Linguistics (ICIL 6), Tbilisi, Georgia},
+  year={2015},month={6}}`},
+// -------- INVITED TALKS --------
+{type:"Invited Talk",group:"2026",month:2,date:"Feb 2026",
+ authors:"Mohammadirad, Masoud",
+ title:"The documentation of Hewramî",
+ venue:"Ancient India and Iran Trust, Cambridge, UK, 20 February 2026",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2026Cambridge,
+  author={Mohammadirad, Masoud},
+  title={The documentation of Hewramî},
+  note={Invited talk at the Ancient India and Iran Trust, Cambridge, UK},
+  year={2026},month={2}}`},
+{type:"Invited Talk",group:"2022",month:9,date:"Sep 2022",
+ authors:"Mohammadirad, Masoud",
+ title:"The Gorani substrate in Southern Central Kurdish dialects",
+ venue:"\"Minorities in the Zagros – Language & Identity\" workshop, Goethe University Frankfurt, 19–20 September 2022",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2022FrankfurtInvited,
+  author={Mohammadirad, Masoud},
+  title={The Gorani substrate in Southern Central Kurdish dialects},
+  note={Invited talk at the "Minorities in the Zagros -- Language \& Identity" workshop, Goethe University Frankfurt},
+  year={2022},month={9}}`},
+{type:"Invited Talk",group:"2022",month:6,date:"Jun 2022",
+ authors:"Haig, Geoffrey, Nourzaei, Maryam, and Mohammadirad, Masoud",
+ title:"Definiteness marking in Kurdish and Balochi: parallels and divergences",
+ venue:"Workshop on definiteness in Iranian languages, Uppsala University, June 2022",
+ links:[],
+ bibtex:`@unpublished{Haig2022UppsalaInvited,
+  author={Haig, Geoffrey and Nourzaei, Maryam and Mohammadirad, Masoud},
+  title={Definiteness marking in Kurdish and Balochi: parallels and divergences},
+  note={Invited talk at the Workshop on definiteness in Iranian languages, Uppsala University},
+  year={2022},month={6}}`},
+{type:"Invited Talk",group:"2022",month:6,date:"Jun 2022",
+ authors:"Mohammadirad, Masoud and Khan, Geoffrey",
+ title:"The definite marker –ake in the Trans-Zab North-Eastern Neo-Aramaic; its origin and convergence with Iranian",
+ venue:"Workshop on definiteness in Iranian languages, Uppsala University, June 2022",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2022UppsalaInvited,
+  author={Mohammadirad, Masoud and Khan, Geoffrey},
+  title={The definite marker --ake in the Trans-Zab North-Eastern Neo-Aramaic; its origin and convergence with Iranian},
+  note={Invited talk at the Workshop on definiteness in Iranian languages, Uppsala University},
+  year={2022},month={6}}`},
+{type:"Invited Talk",group:"2017",month:3,date:"Mar 2017",
+ authors:"Mohammadirad, Masoud",
+ title:"Pronominal clitics in Southern Central Kurdish varieties",
+ venue:"Workshop on pronominal clitics in Iranian languages, Goethe University Frankfurt, 10–12 March 2017",
+ links:[],
+ bibtex:`@unpublished{Mohammadirad2017Frankfurt,
+  author={Mohammadirad, Masoud},
+  title={Pronominal clitics in Southern Central Kurdish varieties},
+  note={Invited talk at the Workshop on pronominal clitics in Iranian languages, Goethe University Frankfurt},
+  year={2017},month={3}}`},
+// -------- POSTERS --------
+{type:"Poster",group:"2021",month:9,date:"Sep 2021",
+ authors:"Mohammadirad, Masoud",
+ title:"The development of person indexing in western Iranian languages",
+ venue:"13th Conference of the Association for Linguistic Typology (ALT 13), University of Pavia, September 2021",
+ links:[{icon:"fa-file-pdf",label:"PDF",url:"The_development_of_bound_person_indexing.pdf"}],
+ bibtex:`@unpublished{Mohammadirad2021Pavia,
+  author={Mohammadirad, Masoud},
+  title={The development of person indexing in western Iranian languages},
+  note={Poster presented at the 13th Conference of the Association for Linguistic Typology (ALT 13), University of Pavia},
+  year={2021},month={9}}`}
+];
+</script>
+<script id="talk-app">
+const TYPE_ORDER=["Conference Talk","Invited Talk","Poster"];
+let activeType="All",searchQuery="";
+function matchesSearch(t,q){if(!q)return true;return[t.title,t.authors,t.venue,t.group,t.date||""].join(" ").toLowerCase().includes(q.toLowerCase())}
+function getYearGroups(items){const by={};items.forEach(t=>(by[t.group]=by[t.group]||[]).push(t));return Object.keys(by).sort((a,b)=>Number(b)-Number(a)).map(y=>({label:y,items:by[y].sort((a,b)=>(b.month||0)-(a.month||0))}))}
+function renderEntry(t){
+  const div=document.createElement("div");div.className="pub-entry";
+  const hdr=document.createElement("div");hdr.className="pub-card-header";
+  const pill=document.createElement("span");pill.className="pub-type-pill";pill.textContent=t.type;hdr.appendChild(pill);
+  const acts=document.createElement("div");acts.className="pub-card-actions";
+  (t.links||[]).forEach(l=>{const a=document.createElement("a");a.className="pub-btn";a.href=l.url;a.target="_blank";a.rel="noopener";a.title=l.label;const i=document.createElement("i");i.className="fas "+l.icon;a.appendChild(i);acts.appendChild(a)});
+  if(t.bibtex){const b=document.createElement("button");b.type="button";b.className="pub-btn";b.title="BibTeX citation";const i=document.createElement("i");i.className="fas fa-quote-right";b.appendChild(i);b.addEventListener("click",()=>openBibtex(t.bibtex));acts.appendChild(b)}
+  hdr.appendChild(acts);div.appendChild(hdr);
+  const dd=document.createElement("div");dd.className="talk-date";dd.textContent=t.date;div.appendChild(dd);
+  const td=document.createElement("div");td.className="pub-title";td.textContent=t.title;div.appendChild(td);
+  const ad=document.createElement("div");ad.className="pub-authors";ad.textContent=t.authors;div.appendChild(ad);
+  if(t.venue){const vd=document.createElement("div");vd.className="pub-venue";vd.textContent=t.venue;div.appendChild(vd)}
+  return div}
+function render(){
+  const root=document.getElementById("talkRoot");root.innerHTML="";
+  const items=TALKS.filter(t=>(activeType==="All"||t.type===activeType)&&matchesSearch(t,searchQuery));
+  getYearGroups(items).forEach(g=>{const h=document.createElement("h2");h.className="year-heading";h.textContent=g.label;root.appendChild(h);g.items.forEach(t=>root.appendChild(renderEntry(t)))});
+  if(!items.length)root.innerHTML='<p class="empty-note">No talks match your search.</p>';
+  document.getElementById("resultsCount").textContent=activeType==="All"?`Showing ${items.length} of ${TALKS.length} talks`:`Showing ${items.length} of ${TALKS.length} talks · ${activeType}`}
+function makePill(label,count,isActive,onClick){const b=document.createElement("button");b.type="button";b.className="filter-pill"+(isActive?" active":"");b.textContent=`${label} (${count})`;b.addEventListener("click",onClick);return b}
+function renderPills(){
+  const wrap=document.getElementById("filterPills");wrap.innerHTML="";
+  wrap.appendChild(makePill("All",TALKS.length,activeType==="All",()=>{activeType="All";renderPills();render()}));
+  TYPE_ORDER.forEach(type=>{const c=TALKS.filter(t=>t.type===type).length;wrap.appendChild(makePill(type,c,activeType===type,()=>{activeType=(activeType===type)?"All":type;renderPills();render()}))})}
+document.getElementById("searchInput").addEventListener("input",e=>{searchQuery=e.target.value;render()});
+renderPills();render();
+</script>
+</body>
 </html>
